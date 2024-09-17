@@ -8,3 +8,15 @@ export function getArticles() {
     return data.articles;
   });
 }
+
+export function getArticlesById(article_id) {
+  return ncNews.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+}
+
+export function getCommentsByArticleId(article_id) {
+  return ncNews.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+}
