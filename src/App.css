@@ -82,13 +82,30 @@ margin:3%;
   border: 0.3rem solid rgb(160, 203, 195);
   border-radius: 15px;
   display: inline-block;
-  text-align: left;
+  text-align: center;
   margin:3%;
 }
 .comment{
   border: 0.3rem solid rgb(160, 203, 195);
   border-radius: 15px;
+  text-align: left;
+  padding:3%;
+  margin:3%;
+  min-height: fit-content;
+  min-width:fit-content;
+}
+.comment-user{
+  border: 0.3rem solid rgb(160, 203, 195);
+  border-radius: 15px;
+  height: 20%;
+  width: 40%;
+  display:flex;
+  flex-direction: row;
+}
+.comment-body{
   display:inline-flex;
+  border: 0.3rem solid rgb(160, 203, 195);
+  border-radius: 15px;
   text-align: left;
   padding:3%;
   margin:3%;

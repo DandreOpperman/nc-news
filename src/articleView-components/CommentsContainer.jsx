@@ -17,6 +17,7 @@ export function CommentsContainer({ article }) {
   }, []);
   return (
     <div className="comments">
+      <h1>Comments</h1>
       {comments.map((comment) => {
         return <Comment key={comment.comment_id} comment={comment} />;
       })}

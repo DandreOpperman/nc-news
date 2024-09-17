@@ -20,3 +20,9 @@ export function getCommentsByArticleId(article_id) {
     return data.comments;
   });
 }
+
+export function getUsers() {
+  return ncNews.get("/users").then(({ data }) => {
+    return data.users;
+  });
+}
