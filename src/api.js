@@ -26,3 +26,12 @@ export function getUsers() {
     return data.users;
   });
 }
+
+export function updateVotes(article_id, num) {
+  const patchBody = {
+    inc_votes: num,
+  };
+  return ncNews.patch(`/articles/${article_id}`, patchBody).then(({ data }) => {
+    return data.article;
+  });
+}

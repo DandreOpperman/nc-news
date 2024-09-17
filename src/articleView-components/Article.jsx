@@ -1,6 +1,11 @@
 import { useState } from "react";
-export function Article({ article }) {
-  // const [articleBody, setArticleBody]=useState('')
+import { updateVotes } from "../api";
+export function Article({ article, article_id }) {
+  const [votes, setVotes] = useState(article.votes);
+  function HandleVote(num) {
+    updateVotes(article_id, num);
+    setVotes(votes + num);
+  }
 
   return (
     <>
@@ -9,11 +14,25 @@ export function Article({ article }) {
         <h2>by {article.author}</h2>
         <img className="solo-article-img" src={article.article_img_url}></img>
         <article className="solo-article-body">{article.body}</article>
-        <p className="solo-article-votes">Votes: {article.votes}</p>
+        <p className="solo-article-votes">Votes: {votes}</p>
       </div>
       <form>
-        <button>upVote</button>
-        <button>downVote</button>
+        <button
+          type="button"
+          onClick={(e) => {
+            HandleVote(1);
+          }}
+        >
+          upVote
+        </button>
+        <button
+          type="button"
+          onClick={(e) => {
+            HandleVote(-1);
+          }}
+        >
+          downVote
+        </button>
       </form>
     </>
   );
