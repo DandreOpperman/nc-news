@@ -28,7 +28,7 @@ export function ArticleContainer() {
     return (
       <img
         className="loader"
-        src="../public/Spinner@1x-1.0s-200px-200px.gif"
+        src="/Spinner@1x-1.0s-200px-200px.gif"
         alt="a loading animation that shows bubbles forming from the inside of a circle, soreading out and then popping when the reach the edge of the circle"
       />
     );
@@ -40,7 +40,7 @@ export function ArticleContainer() {
 
   return (
     <div>
-      <Article article={article} />
+      <Article article={article} article_id={article_id} />
       <CommentsContainer article={article} />
     </div>
   );
