@@ -1,42 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.main-title{
+  border: 0.3rem solid rgb(160, 203, 195);
+  font-size:x-large;
+  margin:1rem;
+  padding:1rem;
+  border-radius: 15px
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.upper-buttons{
+  border: 0.3rem solid #a0cbc3;
+  display: inline-block;
+  padding: 1rem;
+  margin:0.01rem;
+  border-radius: 15px
+  
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.lower-buttons{
+  border: 0.3rem solid rgb(160, 203, 195);
+  display: inline-block;
+  padding: 1rem;
+  margin:0.01rem;
+  border-radius: 15px
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.Article-card-container{
+  margin: 0;
+  padding:5%;
+  border: 0.3rem solid hsl(169, 29%, 71%);
+  align-items: center;
+  border-radius: 15px;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
-  padding: 2em;
+  align-items: center;
+    display:inline-block;
+    padding:0px;
+    margin: 0%;
+    border: 0.3rem solid #a0cbc3;
+    width: 33%;
+    height: 70%;
+    border-radius: 15px;
+    box-sizing: border-box;
 }
+.card-img{
 
-.read-the-docs {
-  color: #888;
+  width: 100%;
+  height: 60%;
+  border-radius: 15px
+}
+.card-title{
+  padding: 0.5rem;
+  font-size:80% ;
+}
+.card-votes{
+  padding: 0.5rem;
+  font-size:x-small ;
 }
