@@ -82,13 +82,32 @@ margin:3%;
   border: 0.3rem solid rgb(160, 203, 195);
   border-radius: 15px;
   display: inline-block;
-  text-align: left;
+  text-align: center;
   margin:3%;
 }
 .comment{
+  display:inline-flex;
   border: 0.3rem solid rgb(160, 203, 195);
   border-radius: 15px;
+  text-align: left;
+  padding:3%;
+  margin:3%;
+  min-height: fit-content;
+  min-width:fit-content;
+}
+.comment-user-avatar{
+  border: 0.3rem solid rgb(160, 203, 195);
+  border-radius: 15px;
+  max-height: 100%;
+  max-width: 100%;
+  text-align: center;
+  padding: 2%;
+  display:flex;
+}
+.comment-body{
   display:inline-flex;
+  border: 0.3rem solid rgb(160, 203, 195);
+  border-radius: 15px;
   text-align: left;
   padding:3%;
   margin:3%;
