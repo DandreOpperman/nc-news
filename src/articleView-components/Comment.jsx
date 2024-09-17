@@ -14,9 +14,11 @@ export function Comment({ comment }) {
   });
   return (
     <div className="comment">
-      <img className="comment-user" src={userAvatar} />
-      <div className="comment-user">user: {username}</div>
-      <div className="comment-body">comment: {comment.body}</div>
+      <div className="left">
+        <img className="comment-user-avatar" src={userAvatar} />
+        <div className="comment-user">{username}</div>
+      </div>
+      <div className="comment-body">{comment.body}</div>
     </div>
   );
 }
