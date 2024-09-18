@@ -41,10 +41,11 @@ export function ArticleCardContainer({ articleTopic }) {
       {articles.map((article) => {
         return (
           <Link
+            key={article.article_id}
             to={`/article/${article.article_id}`}
             element={<ArticleContainer />}
           >
-            <ArticleCard key={article.article_id} article={article} />
+            <ArticleCard article={article} />
           </Link>
         );
       })}

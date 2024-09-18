@@ -1,12 +1,12 @@
 .main-title{
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid rgb(160, 203, 195);
   font-size:x-large;
   margin:1rem;
   padding:1rem;
   border-radius: 15px
 }
 .upper-buttons{
-  border: 0.3rem solid #a0cbc3;
+  border: 0.2rem solid #a0cbc3;
   display: inline-block;
   padding: 1rem;
   margin:0.01rem;
@@ -14,7 +14,7 @@
   
 }
 .lower-buttons{
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid rgb(160, 203, 195);
   display: inline-block;
   padding: 1rem;
   margin:0.01rem;
@@ -23,7 +23,7 @@
 .Article-card-container{
   margin: 0;
   padding:5%;
-  border: 0.3rem solid hsl(169, 29%, 71%);
+  border: 0.2rem solid hsl(169, 29%, 71%);
   align-items: center;
   border-radius: 15px;
 }
@@ -32,7 +32,7 @@
     display:inline-block;
     padding:0px;
     margin: 0%;
-    border: 0.3rem solid #a0cbc3;
+    border: 0.2rem solid #a0cbc3;
     width: 33%;
     height: 70%;
     border-radius: 15px;
@@ -59,7 +59,7 @@
   width: 50%;
 }
 .solo-article-container{
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid rgb(160, 203, 195);
   border-radius: 15px;
   text-align: center;
 }
@@ -79,36 +79,62 @@ margin:3%;
   margin:3%;
 }
 .comments{
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid #a0cbc3;
   border-radius: 15px;
-  display: inline-block;
+  display: grid;
   text-align: center;
   margin:3%;
+  min-width: 19rem;
+  min-height: fit-content;
 }
 .comment{
   display:inline-flex;
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid #a0cbc3;
   border-radius: 15px;
   text-align: left;
   padding:3%;
   margin:3%;
   min-height: fit-content;
-  min-width:fit-content;
+  width:80%;
 }
 .comment-user-avatar{
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid rgb(160, 203, 195);
   border-radius: 15px;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 8rem;
+  width: 5rem;
   text-align: center;
   padding: 2%;
   display:flex;
 }
 .comment-body{
   display:inline-flex;
-  border: 0.3rem solid rgb(160, 203, 195);
+  border: 0.2rem solid #a0cbc3;
   border-radius: 15px;
   text-align: left;
-  padding:3%;
+  padding:8%;
   margin:3%;
+  width:50%;
+}
+.comment-input-box{
+  display:flexbox;
+  border-radius: 15px;
+  border: 0.2rem solid rgb(160, 203, 195);
+  padding:0.5rem;
+  margin: 0.5rem;
+  max-width: 100%;
+}
+.comment-input-label{
+  display:grid;
+  padding:0.5rem;
+  margin: 0.5rem;
+  font-size: large;
+  border-radius: 15px;
+  border: 0.2rem solid rgb(160, 203, 195);
+}
+.comment-submit{
+  display:flexbox;
+  padding:0.5rem;
+  margin: 0.5rem;
+  border-radius: 15px;
+  border: 0.2rem solid rgb(160, 203, 195);
 }
