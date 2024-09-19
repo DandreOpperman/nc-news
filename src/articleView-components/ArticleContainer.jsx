@@ -8,6 +8,7 @@ export function ArticleContainer() {
   const [article, setArticle] = useState([]);
   const [isLoading, SetIsLoading] = useState(false);
   const [isError, SetIsError] = useState(false);
+
   useEffect(() => {
     SetIsLoading(true);
     SetIsError(false);
@@ -20,7 +21,7 @@ export function ArticleContainer() {
       .catch((err) => {
         SetIsLoading(false);
         SetIsError(true);
-        console.log(err, "<-- getArticlesById fail");
+        console.log(err, "<-- getArticlesById failL");
       });
   }, []);
 
@@ -41,7 +42,7 @@ export function ArticleContainer() {
   return (
     <div>
       <Article article={article} article_id={article_id} />
-      <CommentsContainer article={article} />
+      <CommentsContainer />
     </div>
   );
 }
