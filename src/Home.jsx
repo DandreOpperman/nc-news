@@ -1,8 +1,8 @@
 import { Display } from "./Display";
-export function Home() {
+export function Home({ articleTopic, setArticleTopic }) {
   return (
     <>
-      <Display />
+      <Display articleTopic={articleTopic} setArticleTopic={setArticleTopic} />
     </>
   );
 }

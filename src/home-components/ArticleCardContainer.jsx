@@ -3,7 +3,7 @@ import { getArticles } from "../api";
 import { ArticleCard } from "./ArticleCard";
 import { Link } from "react-router-dom";
 import { ArticleContainer } from "../articleView-components/ArticleContainer";
-export function ArticleCardContainer({ articleTopic }) {
+export function ArticleCardContainer({ articleTopic, setArticleTopic }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, SetIsLoading] = useState(false);
   const [isError, SetIsError] = useState(false);
@@ -19,6 +19,7 @@ export function ArticleCardContainer({ articleTopic }) {
       .catch((err) => {
         SetIsLoading(false);
         SetIsError(true);
+        setArticleTopic("");
         console.log(err, "<OO");
       });
   }, [articleTopic]);

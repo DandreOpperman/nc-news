@@ -1,13 +1,14 @@
 import { ArticleCardContainer } from "./home-components/ArticleCardContainer";
 import { NavBar } from "./home-components/NavBar";
-import { useState } from "react";
 
-export function Display() {
-  const [articleTopic, setArticleTopic] = useState("");
+export function Display({ articleTopic, setArticleTopic }) {
   return (
     <>
       <NavBar setArticleTopic={setArticleTopic} />
-      <ArticleCardContainer articleTopic={articleTopic} />
+      <ArticleCardContainer
+        articleTopic={articleTopic}
+        setArticleTopic={setArticleTopic}
+      />
     </>
   );
 }
