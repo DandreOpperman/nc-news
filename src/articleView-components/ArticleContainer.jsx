@@ -20,7 +20,7 @@ export function ArticleContainer() {
       .catch((err) => {
         SetIsLoading(false);
         SetIsError(true);
-        console.log(err);
+        console.log(err, "<-- getArticlesById fail");
       });
   }, []);
 

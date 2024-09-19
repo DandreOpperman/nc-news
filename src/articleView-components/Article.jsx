@@ -2,13 +2,23 @@ import { useState } from "react";
 import { updateVotes } from "../api";
 export function Article({ article, article_id }) {
   const [votes, setVotes] = useState(article.votes);
-  function HandleVote(num) {
-    updateVotes(article_id, num);
-    setVotes(votes + num);
+  const [isLoading, SetIsLoading] = useState(false);
+  const [isError, SetIsError] = useState(false);
+
+  function HandleVote(e, num) {
+    e.preventDefault();
+    updateVotes(article_id, num)
+      .then(() => {
+        setVotes(votes + num);
+      })
+      .catch(() => {
+        SetIsError(true);
+        console.log("error in updateVotes");
+      });
   }
 
   return (
-    <>
+    <section>
       <div className="solo-article-container">
         <h1> {article.title}</h1>
         <h2>by {article.author}</h2>
@@ -20,7 +30,7 @@ export function Article({ article, article_id }) {
         <button
           type="button"
           onClick={(e) => {
-            HandleVote(1);
+            HandleVote(e, 1);
           }}
         >
           upVote
@@ -28,12 +38,15 @@ export function Article({ article, article_id }) {
         <button
           type="button"
           onClick={(e) => {
-            HandleVote(-1);
+            HandleVote(e, -1);
           }}
         >
           downVote
         </button>
       </form>
-    </>
+      <p>
+        {isError ? <p>vote unsuccessful, check internet connection</p> : null}
+      </p>
+    </section>
   );
 }
