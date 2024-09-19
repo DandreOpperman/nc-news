@@ -3,10 +3,16 @@ const ncNews = axios.create({
   baseURL: "https://news-api-ovyc.onrender.com/api",
 });
 
-export function getArticles() {
-  return ncNews.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export function getArticles(articleTopic) {
+  if (articleTopic) {
+    return ncNews.get(`/articles?topic=${articleTopic}`).then(({ data }) => {
+      return data.articles;
+    });
+  } else {
+    return ncNews.get("/articles").then(({ data }) => {
+      return data.articles;
+    });
+  }
 }
 
 export function getArticlesById(article_id) {

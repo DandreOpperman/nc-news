@@ -10,7 +10,7 @@ export function ArticleCardContainer({ articleTopic }) {
   useEffect(() => {
     SetIsLoading(true);
     SetIsError(false);
-    getArticles()
+    getArticles(articleTopic)
       .then((articles) => {
         setArticles(articles);
         SetIsLoading(false);
@@ -19,9 +19,9 @@ export function ArticleCardContainer({ articleTopic }) {
       .catch((err) => {
         SetIsLoading(false);
         SetIsError(true);
-        console.log(err);
+        console.log(err, "<OO");
       });
-  }, []);
+  }, [articleTopic]);
 
   if (isLoading) {
     return (
