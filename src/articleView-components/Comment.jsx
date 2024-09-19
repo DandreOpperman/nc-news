@@ -5,6 +5,7 @@ export function Comment({ comment, comments, setComments }) {
   const isLoggedInUser = comment.author === "weegembump";
   const [userAvatar, setUserAvatar] = useState("");
   const [isLoading, SetIsLoading] = useState(false);
+  const [isFailedDelete, SetIsFailedDelete] = useState(false);
   useEffect(() => {
     getUsers().then((users) => {
       SetIsLoading(true);
@@ -21,14 +22,18 @@ export function Comment({ comment, comments, setComments }) {
     e.preventDefault();
     const updatedArr = [];
     const id = comment.comment_id;
-    deleteComment(id).then(() => {
-      comments.forEach((com) => {
-        if (!com.comment_id === comment.comment_id) {
-          updatedArr.push(com);
-        }
+    deleteComment(id)
+      .then(() => {
+        comments.forEach((com) => {
+          if (!com.comment_id === comment.comment_id) {
+            updatedArr.push(com);
+          }
+        });
+        setComments(updatedArr);
+      })
+      .catch(() => {
+        SetIsFailedDelete(true);
       });
-      setComments(updatedArr);
-    });
   }
 
   if (isLoading) {
@@ -47,6 +52,9 @@ export function Comment({ comment, comments, setComments }) {
         <img className="comment-user-avatar" src={userAvatar} />
         <div className="comment-user">{username}</div>
       </div>
+      {isFailedDelete ? (
+        <p className="comment-body">failed to delete comment</p>
+      ) : null}
       <div className="comment-body">{comment.body}</div>
       <form
         className="comment-box"
