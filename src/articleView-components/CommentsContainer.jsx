@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import { getCommentsByArticleId, postComment } from "../api";
 import { Comment } from "./Comment";
 
-export function CommentsContainer({ article }) {
+export function CommentsContainer() {
   const [comments, setComments] = useState([]);
   const [commentBody, setCommentBody] = useState("");
+  const [isFailedPost, SetIsFailedPost] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { article_id } = useParams();
 
@@ -19,23 +20,48 @@ export function CommentsContainer({ article }) {
       return <p>required comment length not met</p>;
     }
     const newComment = { username: "weegembump", body: commentBody };
-    setIsSubmitting(true);
     setCommentBody("");
-    postComment(article_id, newComment).then(() => {
-      setComments([newComment, ...comments]);
-      setIsSubmitting(false);
-    });
+    setIsSubmitting(true);
+    postComment(article_id, newComment)
+      .then(() => {
+        const updatedComments = [newComment, ...comments].sort((a, b) => {
+          const timeA = new Date(a.created_at).getTime();
+          const timeB = new Date(b.created_at).getTime();
+          if (timeA > timeB) {
+            return -1;
+          }
+          if (timeA < timeB) {
+            return 1;
+          }
+        });
+        setComments(updatedComments);
+        setIsSubmitting(false);
+      })
+      .catch(() => {
+        SetIsFailedPost(true);
+      });
   }
 
   useEffect(() => {
     getCommentsByArticleId(article_id)
       .then((comments) => {
+        comments.sort((a, b) => {
+          const timeA = new Date(a.created_at).getTime();
+          const timeB = new Date(b.created_at).getTime();
+          if (timeA > timeB) {
+            return -1;
+          }
+          if (timeA < timeB) {
+            return 1;
+          }
+        });
         setComments(comments);
       })
       .catch((err) => {
         console.log(err, "<----getCommentsByArticleId fail");
       });
-  }, [comments, article_id]);
+  }, [comments]);
+
   return (
     <div className="comments">
       <h1>Comments</h1>
@@ -48,8 +74,13 @@ export function CommentsContainer({ article }) {
         <label className="comment-input-label" htmlFor="comment-box">
           Leave a comment
         </label>
+
         {isSubmitting ? (
-          <p>posting comment...</p>
+          isFailedPost ? (
+            <p>post failed</p>
+          ) : (
+            <p>posting comment...</p>
+          )
         ) : (
           <textarea
             id="comment-box"
@@ -74,6 +105,8 @@ export function CommentsContainer({ article }) {
           <Comment
             key={comment.comment_id ? comment.comment_id : comment.length * 79}
             comment={comment}
+            comments={comments}
+            setComments={setComments}
           />
         );
       })}

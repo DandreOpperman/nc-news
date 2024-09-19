@@ -2,7 +2,6 @@ import { useState } from "react";
 import { updateVotes } from "../api";
 export function Article({ article, article_id }) {
   const [votes, setVotes] = useState(article.votes);
-  const [isLoading, SetIsLoading] = useState(false);
   const [isError, SetIsError] = useState(false);
 
   function HandleVote(e, num) {

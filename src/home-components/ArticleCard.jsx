@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export function ArticleCard({ article }) {
   return (
     <div className="card">

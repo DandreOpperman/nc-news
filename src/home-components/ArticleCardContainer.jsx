@@ -21,7 +21,7 @@ export function ArticleCardContainer({ articleTopic }) {
         SetIsError(true);
         console.log(err);
       });
-  }, [getArticles]);
+  }, []);
 
   if (isLoading) {
     return (
