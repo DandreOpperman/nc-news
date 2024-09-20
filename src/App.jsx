@@ -7,10 +7,12 @@ import { useState } from "react";
 
 export function App() {
   const [articleTopic, setArticleTopic] = useState("");
+  const [sortBy, setSortBy] = useState("");
+  const [orderBy, setOrderBy] = useState("");
   return (
     <>
       <Link to="/">
-        <Header setArticleTopic={setArticleTopic} />
+        <Header articleTopic={articleTopic} setArticleTopic={setArticleTopic} />
       </Link>
       <Routes>
         <Route
@@ -19,6 +21,10 @@ export function App() {
             <Home
               setArticleTopic={setArticleTopic}
               articleTopic={articleTopic}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+              orderBy={orderBy}
+              setOrderBy={setOrderBy}
             />
           }
         />

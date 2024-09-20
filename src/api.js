@@ -1,18 +1,34 @@
 import axios from "axios";
+
 const ncNews = axios.create({
   baseURL: "https://news-api-ovyc.onrender.com/api",
 });
 
-export function getArticles(articleTopic) {
+export function getArticles(articleTopic, sortBy, orderBy) {
+  let path = "/articles";
   if (articleTopic) {
-    return ncNews.get(`/articles?topic=${articleTopic}`).then(({ data }) => {
-      return data.articles;
-    });
-  } else {
-    return ncNews.get("/articles").then(({ data }) => {
-      return data.articles;
-    });
+    path += `?topic=${articleTopic}`;
   }
+  if (sortBy) {
+    if (!articleTopic) {
+      path += `?sort_by=${sortBy}`;
+    } else {
+      `sort_by=${sortBy}`;
+    }
+  }
+
+  if (orderBy) {
+    if (!sortBy && !articleTopic) {
+      path += `?order=${orderBy}`;
+    } else {
+      path += `&order=${orderBy}`;
+    }
+  }
+
+  return ncNews.get(path).then(({ data }) => {
+    path = "/articles";
+    return data.articles;
+  });
 }
 
 export function getArticlesById(article_id) {
