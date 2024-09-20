@@ -3,14 +3,21 @@ import { getArticles } from "../api";
 import { ArticleCard } from "./ArticleCard";
 import { Link } from "react-router-dom";
 import { ArticleContainer } from "../articleView-components/ArticleContainer";
-export function ArticleCardContainer({ articleTopic, setArticleTopic }) {
+export function ArticleCardContainer({
+  articleTopic,
+  setArticleTopic,
+  sortBy,
+  setSortBy,
+  orderBy,
+  setOrderBy,
+}) {
   const [articles, setArticles] = useState([]);
   const [isLoading, SetIsLoading] = useState(false);
   const [isError, SetIsError] = useState(false);
   useEffect(() => {
     SetIsLoading(true);
     SetIsError(false);
-    getArticles(articleTopic)
+    getArticles(articleTopic, sortBy, orderBy)
       .then((articles) => {
         setArticles(articles);
         SetIsLoading(false);
@@ -22,7 +29,7 @@ export function ArticleCardContainer({ articleTopic, setArticleTopic }) {
         setArticleTopic("");
         console.log(err, "<OO");
       });
-  }, [articleTopic]);
+  }, [articleTopic, sortBy, orderBy]);
 
   if (isLoading) {
     return (

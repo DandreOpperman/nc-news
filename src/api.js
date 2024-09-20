@@ -1,18 +1,17 @@
 import axios from "axios";
+
 const ncNews = axios.create({
   baseURL: "https://news-api-ovyc.onrender.com/api",
 });
 
-export function getArticles(articleTopic) {
-  if (articleTopic) {
-    return ncNews.get(`/articles?topic=${articleTopic}`).then(({ data }) => {
+export function getArticles(articleTopic, sortBy, orderBy) {
+  return ncNews
+    .get("/articles", {
+      params: { topic: articleTopic, sort_by: sortBy, order: orderBy },
+    })
+    .then(({ data }) => {
       return data.articles;
     });
-  } else {
-    return ncNews.get("/articles").then(({ data }) => {
-      return data.articles;
-    });
-  }
 }
 
 export function getArticlesById(article_id) {

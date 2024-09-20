@@ -1,7 +1,37 @@
-export function NavBar({ setArticleTopic }) {
+import { useSearchParams, useParams } from "react-router-dom";
+export function NavBar({ setArticleTopic, setSortBy, setOrderBy }) {
+  let [searchParams, setSearchParams] = useSearchParams("");
+
   function handleClick(e, topic) {
     e.preventDefault();
     setArticleTopic(topic);
+    setSearchParams({ topic });
+  }
+  function handleSortByChange(e) {
+    switch (e.target.value) {
+      case "date":
+        setSortBy("created_at");
+        setSearchParams({ sort_by: "created_at" });
+        break;
+      case "comment count":
+        setSortBy("comment_count");
+        setSearchParams({ sort_by: "comment_count" });
+        break;
+      case "votes":
+        setSortBy("votes");
+        setSearchParams({ sort_by: "votes" });
+    }
+  }
+  function handleOrderByChange(e) {
+    switch (e.target.value) {
+      case "ascending":
+        setOrderBy("asc");
+        setSearchParams({ order: "ascending" });
+        break;
+      case "descending":
+        setOrderBy("desc");
+        setSearchParams({ order: "descending" });
+    }
   }
 
   return (
@@ -34,24 +64,29 @@ export function NavBar({ setArticleTopic }) {
         Cooking
       </button>
       <br></br>
-      <button
-        type="button"
+      <select
+        id="sortBy"
         className="lower-buttons"
-        onClick={(e) => {
-          handleClick(e);
+        onChange={(e) => {
+          handleSortByChange(e);
         }}
       >
-        Sort by...
-      </button>
-      <button
-        type="button"
+        <option value="">-select a category to sort by--</option>
+        <option value="date">date</option>
+        <option value="comment count">comment count</option>
+        <option value="votes">votes</option>
+      </select>
+      <select
         className="lower-buttons"
-        onClick={(e) => {
-          handleClick(e);
+        onChange={(e) => {
+          handleOrderByChange(e);
         }}
+        id="orderBy"
       >
-        Order
-      </button>
+        <option value="">-order of display--</option>
+        <option value="ascending">ascending </option>
+        <option value="descending">descending</option>
+      </select>
     </form>
   );
 }
