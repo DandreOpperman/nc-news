@@ -5,30 +5,13 @@ const ncNews = axios.create({
 });
 
 export function getArticles(articleTopic, sortBy, orderBy) {
-  let path = "/articles";
-  if (articleTopic) {
-    path += `?topic=${articleTopic}`;
-  }
-  if (sortBy) {
-    if (!articleTopic) {
-      path += `?sort_by=${sortBy}`;
-    } else {
-      `sort_by=${sortBy}`;
-    }
-  }
-
-  if (orderBy) {
-    if (!sortBy && !articleTopic) {
-      path += `?order=${orderBy}`;
-    } else {
-      path += `&order=${orderBy}`;
-    }
-  }
-
-  return ncNews.get(path).then(({ data }) => {
-    path = "/articles";
-    return data.articles;
-  });
+  return ncNews
+    .get("/articles", {
+      params: { topic: articleTopic, sort_by: sortBy, order: orderBy },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    });
 }
 
 export function getArticlesById(article_id) {
