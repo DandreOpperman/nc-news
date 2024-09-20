@@ -42,7 +42,11 @@ export function ArticleCardContainer({
   }
 
   if (isError) {
-    return <p>something went wrong</p>;
+    return (
+      <p className="Article-card-container">
+        Something went wrong, you may want to check your internet connection 🤔
+      </p>
+    );
   }
   return (
     <div className="Article-card-container">

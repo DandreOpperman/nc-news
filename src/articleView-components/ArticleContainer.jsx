@@ -36,7 +36,13 @@ export function ArticleContainer() {
   }
 
   if (isError) {
-    return <p>something went wrong</p>;
+    return (
+      <p className="Article-card-container">
+        Sorry friend, either that article does not exist or you are currently
+        offline. If you want to navigate back home, double check that you are
+        connected to the internet and click on the NC-News header 🤔
+      </p>
+    );
   }
 
   return (
