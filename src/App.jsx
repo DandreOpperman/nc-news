@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Header } from "./Header";
 import { Home } from "./Home";
+import { NotFound } from "./Notfound";
 import { Link } from "react-router-dom";
 import { ArticleContainer } from "./articleView-components/ArticleContainer";
 import { useState } from "react";
@@ -29,6 +30,7 @@ export function App() {
           }
         />
         <Route path="/article/:article_id" element={<ArticleContainer />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

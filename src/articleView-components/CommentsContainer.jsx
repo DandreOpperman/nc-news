@@ -8,6 +8,8 @@ export function CommentsContainer() {
   const [commentBody, setCommentBody] = useState("");
   const [isFailedPost, SetIsFailedPost] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [commentError, setCommentError] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const { article_id } = useParams();
 
   function handleInputChange(e) {
@@ -17,8 +19,12 @@ export function CommentsContainer() {
   function handleSubmit(e) {
     e.preventDefault();
     if (commentBody.length < 1) {
-      return <p>required comment length not met</p>;
+      setCommentError(true);
+      setCommentBody("");
+      setIsSubmitting(false);
+      return;
     }
+    setCommentError(false);
     const newComment = { username: "weegembump", body: commentBody };
     setCommentBody("");
     setIsSubmitting(true);
@@ -60,7 +66,7 @@ export function CommentsContainer() {
       .catch((err) => {
         console.log(err, "<----getCommentsByArticleId fail");
       });
-  }, [comments]);
+  }, [isSubmitting, isDeleting]);
 
   return (
     <div className="comments">
@@ -74,12 +80,19 @@ export function CommentsContainer() {
         <label className="comment-input-label" htmlFor="comment-box">
           Leave a comment
         </label>
+        {commentError ? (
+          <p className="comment">
+            Your comment has to be atleast a single character long.
+          </p>
+        ) : null}
 
         {isSubmitting ? (
           isFailedPost ? (
-            <p>post failed</p>
+            <p className="comment">
+              Post failed, check your internet connection and try again 🤔
+            </p>
           ) : (
-            <p>posting comment...</p>
+            <p className="comment">posting comment...</p>
           )
         ) : (
           <textarea
@@ -107,6 +120,7 @@ export function CommentsContainer() {
             comment={comment}
             comments={comments}
             setComments={setComments}
+            setIsDeleting={setIsDeleting}
           />
         );
       })}

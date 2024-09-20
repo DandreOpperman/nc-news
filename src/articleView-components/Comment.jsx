@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { deleteComment, getUsers } from "../api";
-export function Comment({ comment, comments, setComments }) {
+export function Comment({ comment, comments, setComments, setIsDeleting }) {
   const username = comment.author;
   const isLoggedInUser = comment.author === "weegembump";
   const [userAvatar, setUserAvatar] = useState("");
@@ -22,8 +22,10 @@ export function Comment({ comment, comments, setComments }) {
     e.preventDefault();
     const updatedArr = [];
     const id = comment.comment_id;
+    setIsDeleting(true);
     deleteComment(id)
       .then(() => {
+        setIsDeleting(false);
         comments.forEach((com) => {
           if (!com.comment_id === comment.comment_id) {
             updatedArr.push(com);
@@ -33,6 +35,7 @@ export function Comment({ comment, comments, setComments }) {
       })
       .catch(() => {
         SetIsFailedDelete(true);
+        setIsDeleting(false);
       });
   }
 
