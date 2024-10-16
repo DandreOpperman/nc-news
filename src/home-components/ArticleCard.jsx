@@ -1,10 +1,25 @@
+import { Link } from "react-router-dom";
+import { FaThumbsUp } from "react-icons/fa";
+import { FaComments } from "react-icons/fa";
 export function ArticleCard({ article }) {
   return (
     <div className="card">
-      <h2 className="card-title">{article.title}</h2>
+      <Link
+        key={article.article_id}
+        to={`/article/${article.article_id}`}
+        element={<ArticleCard />}
+      >
+        <h2 className="card-title">{article.title}</h2>
+      </Link>
       <img className="card-img" src={article.article_img_url} />
-      <p className="card-votes">Votes: {article.votes}</p>
-      <p className="card-votes">comments: {article.comment_count}</p>
+      <div className="card-info">
+        <p className="card-votes">
+          <FaThumbsUp className="icon" /> {article.votes}
+        </p>
+        <p className="card-comments">
+          <FaComments className="icon" /> {article.comment_count}
+        </p>
+      </div>
     </div>
   );
 }

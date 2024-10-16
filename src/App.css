@@ -3,7 +3,8 @@
   font-size:x-large;
   margin:1rem;
   padding:1rem;
-  border-radius: 15px
+  border-radius: 15px;
+  text-decoration: none;
 }
 .upper-buttons{
   border: 0.2rem solid #a0cbc3;
@@ -21,37 +22,65 @@
   border-radius: 15px
 }
 .Article-card-container{
-  margin: 0;
+  /* margin: 0;
   padding:5%;
   border: 0.2rem solid hsl(169, 29%, 71%);
   align-items: center;
-  border-radius: 15px;
+  border-radius: 15px; */
+  margin: 0 auto;
+  max-width: 100rem;
+  padding:5%;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    gap:20px;
+    border: 0.2rem solid #a0cbc3;
+    border-radius: 15px;
 }
 .card {
-  align-items: center;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  /* align-items: center;
     display:inline-block;
     padding:0px;
-    margin: 0%;
-    border: 0.2rem solid #a0cbc3;
-    width: 33%;
-    height: 70%;
+    margin: 0%; */
+    /* border: 0.2rem solid #a0cbc3; */
+    /* width: 80%;
+    height: 100%; */
+    background: #fafafa;
     border-radius: 15px;
     box-sizing: border-box;
+    font-family: sans-serif;
+    border-bottom: 2px solid #cccccc;
+
 }
 .card-img{
-
   width: 100%;
-  height: 60%;
-  border-radius: 15px
+  display:block;
+  justify-content: space-between;
+  background: #fafafa;
 }
 .card-title{
+  line-height: 1.5;
+  font-size: 50rem;
   padding: 0.5rem;
   font-size:80% ;
+  min-height: 5rem;
+  justify-content: space-between;
+  background: #fafafa;
+  text-decoration:none;
 }
-.card-votes{
-  padding: 0.5rem;
-  font-size:x-small ;
+.card-title:hover{
+  text-decoration: underline;
+  color:rgb(20, 20, 82);
 }
+
+
+.card-info{
+  padding: 1.5rem;
+  display:flex;
+  justify-content: space-between;
+  font-size: 0.8em; 
+}
+
 .loader {
   display: block;
   margin-left: auto;

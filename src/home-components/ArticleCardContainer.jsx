@@ -51,15 +51,7 @@ export function ArticleCardContainer({
   return (
     <div className="Article-card-container">
       {articles.map((article) => {
-        return (
-          <Link
-            key={article.article_id}
-            to={`/article/${article.article_id}`}
-            element={<ArticleContainer />}
-          >
-            <ArticleCard article={article} />
-          </Link>
-        );
+        return <ArticleCard article={article} />;
       })}
     </div>
   );
