@@ -3,7 +3,8 @@
   font-size:x-large;
   margin:1rem;
   padding:1rem;
-  border-radius: 15px
+  border-radius: 15px;
+  text-decoration: none;
 }
 .upper-buttons{
   border: 0.2rem solid #a0cbc3;
@@ -30,7 +31,7 @@
   max-width: 100rem;
   padding:5%;
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
     gap:20px;
     border: 0.2rem solid #a0cbc3;
     border-radius: 15px;
@@ -65,12 +66,17 @@
   min-height: 5rem;
   justify-content: space-between;
   background: #fafafa;
+  text-decoration:none;
 }
+.card-title:hover{
+  text-decoration: underline;
+  color:rgb(20, 20, 82);
+}
+
+
 .card-info{
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  display:inline-flexbox;
+  padding: 1.5rem;
+  display:flex;
   justify-content: space-between;
   font-size: 0.8em; 
 }
