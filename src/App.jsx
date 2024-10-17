@@ -12,7 +12,7 @@ export function App() {
   const [orderBy, setOrderBy] = useState("");
   return (
     <>
-      <Link to="/">
+      <Link to="/" style={{ textDecoration: "none" }}>
         <Header articleTopic={articleTopic} setArticleTopic={setArticleTopic} />
       </Link>
       <Routes>

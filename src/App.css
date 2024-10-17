@@ -1,10 +1,15 @@
+
 .main-title{
-  border: 0.2rem solid rgb(160, 203, 195);
+  border: 0.2rem solid #a0cbc3;
   font-size:x-large;
+  color: black;
   margin:1rem;
   padding:1rem;
   border-radius: 15px;
-  text-decoration: none;
+}
+.main-title:hover{
+  color:#4C5760;
+  text-decoration: underline;
 }
 .upper-buttons{
   border: 0.2rem solid #a0cbc3;
@@ -15,7 +20,7 @@
   
 }
 .lower-buttons{
-  border: 0.2rem solid rgb(160, 203, 195);
+  border: 0.2rem solid #a0cbc3;
   display: inline-block;
   padding: 1rem;
   margin:0.01rem;
@@ -35,6 +40,7 @@
     gap:20px;
     border: 0.2rem solid #a0cbc3;
     border-radius: 15px;
+    color: #fcfafa;
 }
 .card {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -45,13 +51,18 @@
     /* border: 0.2rem solid #a0cbc3; */
     /* width: 80%;
     height: 100%; */
-    background: #fafafa;
+    background: linear-gradient(#4C5760 0 0) no-repeat var(--p,0) 100%/var(--p, 0) .1em;
+    transition: 0.4s, background-position 0s;
     border-radius: 15px;
     box-sizing: border-box;
     font-family: sans-serif;
-    border-bottom: 2px solid #cccccc;
+    border-bottom: 2px solid #a4b8c4;
 
 }
+.card:hover{
+  --p: 100%;
+}
+
 .card-img{
   width: 100%;
   display:block;
@@ -59,22 +70,25 @@
   background: #fafafa;
 }
 .card-title{
+  color: black;
   line-height: 1.5;
-  font-size: 50rem;
+  font-size: 170rem;
   padding: 0.5rem;
   font-size:80% ;
   min-height: 5rem;
   justify-content: space-between;
-  background: #fafafa;
   text-decoration:none;
 }
+
+
 .card-title:hover{
   text-decoration: underline;
-  color:rgb(20, 20, 82);
+  color:#4C5760;
 }
 
 
 .card-info{
+  color:black;
   padding: 1.5rem;
   display:flex;
   justify-content: space-between;
