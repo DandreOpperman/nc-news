@@ -35,7 +35,7 @@ export function NavBar({ setArticleTopic, setSortBy, setOrderBy }) {
   }
 
   return (
-    <form>
+    <form className="navbar">
       <button
         type="button"
         className="upper-buttons"
@@ -83,7 +83,7 @@ export function NavBar({ setArticleTopic, setSortBy, setOrderBy }) {
         }}
         id="orderBy"
       >
-        <option value="">-order of display--</option>
+        <option value="">ascending or descending</option>
         <option value="ascending">ascending </option>
         <option value="descending">descending</option>
       </select>

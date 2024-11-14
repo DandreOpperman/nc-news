@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { formatDate } from "../../utils/utils";
 import { FaThumbsUp } from "react-icons/fa";
 import { FaComments } from "react-icons/fa";
+import { FaPen } from "react-icons/fa";
 export function ArticleCard({ article }) {
   return (
     <div className="card">
@@ -13,6 +15,10 @@ export function ArticleCard({ article }) {
         <h2 className="card-title">{article.title}</h2>
         <img className="card-img" src={article.article_img_url} />
         <div className="card-info">
+          <p className="card-date">
+            <FaPen className="icon" />
+            {formatDate(article)}
+          </p>
           <p className="card-votes">
             <FaThumbsUp className="icon" /> {article.votes}
           </p>

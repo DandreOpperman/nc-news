@@ -70,7 +70,7 @@ export function CommentsContainer() {
 
   return (
     <div className="comments">
-      <h1>Comments</h1>
+      <h1 className="comments-conatainer-title">Comments</h1>
       <form
         className="comment-box"
         onSubmit={(e) => {

@@ -8,7 +8,7 @@ export function Home({
   setOrderBy,
 }) {
   return (
-    <>
+    <div className="background">
       <Display
         articleTopic={articleTopic}
         setArticleTopic={setArticleTopic}
@@ -17,6 +17,6 @@ export function Home({
         orderBy={orderBy}
         setOrderBy={setOrderBy}
       />
-    </>
+    </div>
   );
 }
