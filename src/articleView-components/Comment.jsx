@@ -51,7 +51,7 @@ export function Comment({ comment, comments, setComments, setIsDeleting }) {
 
   return (
     <div className="comment">
-      <div className="left">
+      <div className="user-info">
         <img className="comment-user-avatar" src={userAvatar} />
         <div className="comment-user">{username}</div>
       </div>

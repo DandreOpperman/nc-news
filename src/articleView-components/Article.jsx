@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { updateVotes } from "../api";
+import { FaThumbsUp } from "react-icons/fa";
+import { FaThumbsDown } from "react-icons/fa";
 export function Article({ article, article_id }) {
   const [votes, setVotes] = useState(article.votes);
   const [isError, SetIsError] = useState(false);
@@ -19,30 +21,30 @@ export function Article({ article, article_id }) {
   return (
     <section>
       <div className="solo-article-container">
-        <h1> {article.title}</h1>
-        <h2>by {article.author}</h2>
+        <h1 className="solo-article-title"> {article.title}</h1>
+        <h2 className="solo-article-title">by {article.author}</h2>
         <img className="solo-article-img" src={article.article_img_url}></img>
         <article className="solo-article-body">{article.body}</article>
         <p className="solo-article-votes">Votes: {votes}</p>
+        <form className="solo-article-buttons">
+          <button
+            type="button"
+            onClick={(e) => {
+              HandleVote(e, 1);
+            }}
+          >
+            <FaThumbsUp className="icon" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              HandleVote(e, -1);
+            }}
+          >
+            <FaThumbsDown className="icon" />
+          </button>
+        </form>
       </div>
-      <form>
-        <button
-          type="button"
-          onClick={(e) => {
-            HandleVote(e, 1);
-          }}
-        >
-          upVote
-        </button>
-        <button
-          type="button"
-          onClick={(e) => {
-            HandleVote(e, -1);
-          }}
-        >
-          downVote
-        </button>
-      </form>
       <p>
         {isError ? <p>vote unsuccessful, check internet connection</p> : null}
       </p>
