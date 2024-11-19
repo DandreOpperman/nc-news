@@ -1,10 +1,10 @@
-# Welcome to my News APP
+# Welcome to my News App
 
 ### Introduction
 
 Welcome to NC News Frontend! This project is a social news aggregation, web content rating, and discussion website. It allows users to view articles, read comments, vote on articles, post new comments, and more.
 
-this project makes calls to an API that I made, which can be accessed [here](https://news-api-ovyc.onrender.com/). This portfolio project was made during a week-long sprint (09-09-2024 to 1-09-2024)) during my [Northcoders](https://northcoders.com) full stack software developer bootcamp. During this week I utilised the following skills in order to finish this project:
+This project makes calls to an API that I made, which can be accessed [here](https://news-api-ovyc.onrender.com/). This portfolio project was made during a week-long sprint (09-09-2024 to 1-09-2024)) during my [Northcoders](https://northcoders.com) full stack software developer bootcamp. During this week I utilised the following skills in order to finish this project:
 
 - JavaScript
 - React.js
@@ -29,9 +29,9 @@ To interact with this website locally you will need to carry out the following i
 
 1. Clone the repository with following command `git clone https://github.com/DandreOpperman/nc-news.git`
 
-2. Next open the repository in a code editing software, for example visual studio code. you will need to have Node.js installed, this app was made using Made using Node.js v22.4.1.
+2. Open the repository in a code editing software, for example visual studio code. you will need to have Node.js installed, this app was made using Made using Node.js v22.4.1.
 
-3. Next you will need to install the dependencies with following command: `npm install` . Doing so will install these dependencies:
+3. Install the dependencies with following command: `npm install` . Doing so will install these dependencies:
 
 - axios
 - react
