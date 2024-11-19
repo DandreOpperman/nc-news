@@ -2,7 +2,7 @@
 
 ### Introduction
 
-Welcome to NC News Frontend! This project is a social news aggregation, web content rating, and discussion website. It allows users to view articles, read comments, vote on articles, post new comments, and more.
+Welcome to NC News Frontend! This project is a social news aggregation, web content rating, and discussion website. It allows users to view articles, read comments, vote on articles and post new comments.
 
 This project makes calls to an API that I made, which can be accessed [here](https://news-api-ovyc.onrender.com/). This portfolio project was made during a week-long sprint (09-09-2024 to 1-09-2024)) during my [Northcoders](https://northcoders.com) full stack software developer bootcamp. During this week I utilised the following skills in order to finish this project:
 
