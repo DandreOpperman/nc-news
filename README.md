@@ -49,4 +49,4 @@ To interact with this website locally you will need to carry out the following i
 
 ### Contact
 
-If you have any questions or would like to give any feedback please send me a message: (email address)[dandreopperman@gmail.com] (linkedIn)[https://www.linkedin.com/in/dandre-opperman/]
+If you have any questions or would like to give any feedback please send me a message: [email address](dandreopperman@gmail.com) [linkedIn](https://www.linkedin.com/in/dandre-opperman/)
