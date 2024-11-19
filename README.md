@@ -41,7 +41,7 @@ To interact with this website locally you will need to carry out the following i
 
 4. Setup the local host using Vite with following command: `npm run dev`. To view the localy hosted instance of website, go to http://localhost:5173 in your browser.
 
-## Additional Notes
+### Additional Notes
 
 - Ensure that the backend server is running and accessible.
 - Make sure to set the correct environment variables for the backend API URL if needed.
